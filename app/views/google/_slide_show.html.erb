@@ -1,0 +1,14 @@
+<% content_for :head do -%>
+  <%= google_ajax_api_scripts -%>
+  <%= google_ajax_slideshow_scripts -%>
+  <%= google_load_feeds -%>
+<% end -%>
+<% content_for :javascript do -%>
+google.setOnLoadCallback(function() {
+  new GFslideShow("<%= feed.uri %>", "<%= content_id %>", <%= options.to_json %>);
+});
+<% end -%>
+<div id="<%= content_id %>" class="slide_show_content">
+  <%= t('muck.raker.loading_message') %>
+  <img src="/images/spinner.gif" alt="<%= t('muck.raker.loading_image') %>" />
+</div>

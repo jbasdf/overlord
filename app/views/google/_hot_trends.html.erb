@@ -1,0 +1,5 @@
+<ul class="google-trends">
+  <% google_hot_trends_terms.each do |term| -%>
+    <li><%= link_to h(term).titleize, topic_path(CGI.escape(term)) %></li>
+  <% end -%>
+</ul>

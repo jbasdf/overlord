@@ -1,0 +1,22 @@
+<% content_for :head do -%>
+  <%= google_ajax_api_scripts -%>
+  <script src="http://www.google.com/uds/solutions/dynamicfeed/gfdynamicfeedcontrol.js" type="text/javascript"></script>
+  <style type="text/css">
+    @import url("http://www.google.com/uds/solutions/dynamicfeed/gfdynamicfeedcontrol.css");
+  </style>
+  <%= google_load_feeds -%>
+<% end -%>
+<% content_for :javascript do -%>
+google.setOnLoadCallback(function() {
+  var feeds = [
+    <%= feeds.collect { |feed|
+      "{ title: '#{feed.title}', url: '#{feed.uri}' }"
+    }.join(',') -%>
+  ];
+  new GFdynamicFeedControl(feeds, '<%= content_id %>', <%= options.to_json %>);
+});
+<% end -%>
+<div id="<%= content_id %>">
+  <%= t('muck.raker.loading_message') %>
+  <img src="/images/spinner.gif" alt="<%= t('muck.raker.loading_image') %>" />
+</div>

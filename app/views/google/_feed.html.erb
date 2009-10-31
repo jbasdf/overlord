@@ -1,0 +1,43 @@
+<% content_id ||= feed_content_id(feed) -%>
+<% content_for :head do -%>
+  <%= google_ajax_api_scripts -%>
+  <%= google_load_feeds -%>
+  <%= google_muck_load_script(feed, content_id, javascript_callback) %>
+<% end -%>
+
+<% if run_load_scripts -%>
+  <script type="text/javascript">
+    <%= google_muck_load_callback_script(feed, content_id, number_of_items, number_of_images, number_of_videos) %>
+    setup_delete_links();
+  </script>
+<% else -%>
+  <% content_for :javascript do -%>
+    google.setOnLoadCallback(function() {
+      <%= google_muck_load_callback_script(feed, content_id, number_of_items, number_of_images, number_of_videos) %>
+    });
+  <% end -%>
+<% end -%>
+
+<div class="feed">
+  <div class="feed-header">
+    <h3 <%= service_icon_background(feed.service) %>>
+      <%= link_to "#{feed.title.humanize}", feed.display_uri, :target => 'blank' %>
+      <%= link_to "(rss)", feed.uri, :target => 'blank' %>
+      <% if defined?(show_controls) && show_controls -%>
+        <span class="remove-feed feed-control">
+          <%= link_to t('muck.raker.remove'), aggregation_feed_path(0, :aggregation_id => @aggregation.id, :feed_id => feed.id), :class => 'delete-link' %>
+        </span>
+        <% if use_uri_for_control -%>
+          <%= hidden_field_tag "uris[]", feed.uri -%>
+        <% else -%>
+          <%= hidden_field_tag "service_ids[]", feed.service.id -%>
+        <% end -%>
+      <% end -%>
+    </h3>
+  </div>
+  <div class="feed-content">
+    <div id="<%= content_id %>" class="feed-item <%= feed_class(feed) %>">
+      <span class="waiting"><%= t('muck.raker.loading_message') %></span>
+    </div>
+  </div>
+</div>

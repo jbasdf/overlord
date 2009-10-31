@@ -1,0 +1,26 @@
+<% content_for :head do -%>
+  <%= google_ajax_api_scripts -%>
+  <%= google_load_feeds -%>
+<% end -%>
+<% content_for :javascript do -%>
+google.setOnLoadCallback(function() {
+  google.feeds.findFeeds('<%= query %>', findDone);
+});
+function findDone(result) {
+  // Make sure we didn't get an error.
+  if (!result.error) {
+    // Get content div
+    var content = document.getElementById('<%= content_id %>');
+    var html = '';
+    for (var i = 0; i < result.entries.length; i++) {
+      var entry = result.entries[i];
+      html += '<p><a href="' + entry.url + '">' + entry.title + '</a></p>';
+    }
+    content.innerHTML = html;
+  }
+}
+<% end -%>
+<div id="<%= content_id %>">
+  <%= t('muck.raker.loading_message') %>
+  <img src="/images/spinner.gif" alt="Loading content image" />
+</div>

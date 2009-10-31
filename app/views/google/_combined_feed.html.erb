@@ -1,0 +1,54 @@
+<% content_for :head do -%>
+  <%= google_ajax_api_scripts -%>
+  <%= google_load_feeds -%>
+<% end -%>
+
+<script type="text/javascript">
+  entries = [];
+  function feed_loaded(result) {
+    if (!result.error) {
+      jQuery('#<%= content_id %> .waiting').hide();
+      jQuery('#<%= content_id %> ul').html('');
+      new_entries = result.feed.entries;
+      for (var i=0; i<new_entries.length; i++){
+        new_entries[i].feed = result.feed;
+      }
+      entries = jQuery.merge(entries, new_entries);
+      entries = entries.sort(function(a,b){
+        return a.publishedDate > b.publishedDate;
+      });
+      for (var i=0; i<entries.length; i++) {
+        var html = '<li class="feed-item" style="background: transparent url(/images/service_icons/24/' + get_service_name(entries[i]) + ') no-repeat scroll left top;">';
+        html += '<div class="feed-title"><a href="' + entries[i].link + '" target="_blank">' + entries[i].title + '</a></div>';
+        html += '<div class="feed-content" style="display:none;">';
+        html += '<h3><a href="' + entries[i].link + '" target="_blank">' + entries[i].title + '</a></h3>';
+        html +=  entries[i].content;
+        html +=  '</div>';
+        html += '</li>';
+        jQuery('#<%= content_id %> ul').append(html);
+      }
+      apply_show_entry_content();
+      <%= "#{javascript_callback}('#{content_id}');" if javascript_callback -%>
+    }
+  }
+  google.setOnLoadCallback(function(){
+    <% feeds.each do |feed| -%>
+      new google.feeds.Feed("<%=feed.uri%>").load(feed_loaded);
+    <% end -%>
+  });
+  
+  function get_service_name(entry) {
+    var services = eval(<%= Service.all.to_json(:only => [ :uri_key, :icon ]) %>);
+    for(var i=0; i<services.length; i++){
+      if(services[i].uri_key && (entry.link.indexOf(services[i].uri_key) >= 0 || entry.feed.link.indexOf(services[i].uri_key) >= 0)){
+        return services[i].icon;
+      }
+    }
+    return 'feed.png';
+  }
+</script>
+
+<div id="<%= content_id %>" class="combined-feed">
+  <span class="waiting"><%= t('muck.raker.loading_message') %></span>
+  <ul class="combined-feed-list"></ul>
+</div>

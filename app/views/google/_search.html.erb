@@ -1,0 +1,39 @@
+<% content_for :head do -%>
+  <%= google_ajax_api_scripts -%>
+  <%= google_load_search -%>
+<% end -%>
+<script type="text/javascript">
+function google_load_search() {
+  var searchControl = new google.search.SearchControl();
+  
+  <% search_types.each do |type| -%>
+    <%= google_typed_search(type, feeds, locale) %>
+  <% end -%>
+  
+  <% if GlobalConfig.google_ad_partner_pub -%>
+    searchControl.enableAds('<%= GlobalConfig.google_ad_partner_pub %>');
+  <% end -%>
+  
+  <% if search_types.length > 1 -%>
+    var drawOptions = new google.search.DrawOptions();
+    drawOptions.setDrawMode(google.search.SearchControl.DRAW_MODE_TABBED);
+    searchControl.draw(document.getElementById("<%= content_id %>"), drawOptions);
+  <% else -%>
+    searchControl.draw(document.getElementById("<%= content_id %>"));
+  <% end -%>
+  
+  searchControl.execute('<%=search_for%>');
+}
+google.setOnLoadCallback(google_load_search);
+</script>
+<div class="feed">
+  <div class="feed-header">
+    <h3 class="google-header"><%= title %></h3>
+  </div>
+  <div class="feed-content">
+    <div id="<%= content_id %>" class="search-container">
+      <span class="waiting"><%= t('muck.raker.loading_message') %></span>
+    </div>
+  </div>
+</div>
+

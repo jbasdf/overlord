@@ -1,0 +1,36 @@
+<% content_for :javascript do -%>
+function google_load_complete(uri, content_id) {
+  jQuery('.hentry .entry').hide();
+  jQuery('.hentry h4 .entry-close').hide();
+  jQuery('.hentry h4 a.entry-link-close').click(function(){
+    jQuery(this).parent().parent().siblings('.entry').hide();
+    jQuery(this).parent().hide();
+    return false;
+  });
+  jQuery('.hentry h4 a.entry-link').click(function(){
+    jQuery(this).parent().siblings('.entry').show();
+    jQuery(this).siblings('.entry-close').show();
+    return false;
+  });
+}
+function setup_delete_links() {
+  jQuery(".delete-link").click(function() {
+    var container = jQuery(this).parents('div.feed');
+    container.fadeOut(500, function() {
+      jQuery(this).remove();
+    });
+    jQuery.post(jQuery(this).attr('href'), { '_method': 'delete', 'format': 'json' },
+      function(data){
+        var json = eval('(' + data + ')');
+        if(!json.success){
+          <%= jquery_message('#ajax-messages') %>
+        }
+      });
+    return false;
+  });
+}
+jQuery(document).ready(function() {
+  google_load_complete('','');
+  setup_delete_links();  
+});
+<% end -%>

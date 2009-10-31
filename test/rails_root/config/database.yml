@@ -1,0 +1,17 @@
+development:
+  adapter: mysql
+  database: overlord
+  username: root
+  password:
+  host: localhost
+  encoding: utf8
+
+test: &TEST
+  adapter: mysql
+  database: overlord_test
+  username: root
+  password:
+  host: localhost
+  encoding: utf8
+cucumber:
+  <<: *TEST

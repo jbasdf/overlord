@@ -1,35 +1,42 @@
 require 'rubygems'
 require 'rake'
+require 'rake/testtask'
+require 'rake/rdoctask'
 
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "overlord"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = "Talk with our Google overlords"
+    gem.description = "Code to interact with the google ajax apis on the server and the client."
     gem.email = "justinball@gmail.com"
     gem.homepage = "http://github.com/jbasdf/overlord"
     gem.authors = ["Justin Ball"]
     gem.add_development_dependency "thoughtbot-shoulda"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
+  Jeweler::GemcutterTasks.new
 rescue LoadError
   puts "Jeweler (or a dependency) not available. Install it with: sudo gem install jeweler"
 end
 
-require 'rake/testtask'
-Rake::TestTask.new(:test) do |test|
-  test.libs << 'lib' << 'test'
-  test.pattern = 'test/**/*_test.rb'
-  test.verbose = true
+desc 'Test overlord.'
+Rake::TestTask.new(:test) do |t|
+  t.libs << 'lib'
+  t.libs << 'test/rails_root/test'
+  t.pattern = 'test/rails_root/test/**/*_test.rb'
+  t.verbose = true
 end
 
 begin
   require 'rcov/rcovtask'
-  Rcov::RcovTask.new do |test|
-    test.libs << 'test'
-    test.pattern = 'test/**/*_test.rb'
-    test.verbose = true
+  Rcov::RcovTask.new do |t|
+    #t.libs << 'lib'
+    t.libs << 'test/rails_root/lib'
+    t.pattern = 'test/rails_root/test/**/*_test.rb'
+    t.verbose = true
+    t.output_dir = 'coverage'
+    t.rcov_opts << '--exclude "gems/*"'
   end
 rescue LoadError
   task :rcov do
@@ -39,9 +46,11 @@ end
 
 task :test => :check_dependencies
 
+desc 'Run default tests.'
 task :default => :test
 
 require 'rake/rdoctask'
+desc 'Generate documentation for the recommender plugin.'
 Rake::RDocTask.new do |rdoc|
   if File.exist?('VERSION')
     version = File.read('VERSION')
@@ -53,4 +62,12 @@ Rake::RDocTask.new do |rdoc|
   rdoc.title = "overlord #{version}"
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
+end
+
+desc 'Translate this gem'
+task :translate do
+  file = File.join(File.dirname(__FILE__), 'locales', 'en.yml')
+  system("babelphish -o -y #{file}")
+  path = File.join(File.dirname(__FILE__), 'app', 'views', 'raker_mailer')
+  system("babelphish -o -h #{path} -l en")
 end
