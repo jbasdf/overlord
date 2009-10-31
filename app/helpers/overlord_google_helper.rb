@@ -151,17 +151,21 @@ module OverlordGoogleHelper
   # javascript_callback: Name of a javascript method to call after the feed has finished loading.  The 
   #                      method should accept the feed uri and the content id. ie  feed_callback(uri, content_id).
   def google_muck_load_script(feed, content_id = nil, javascript_callback = nil)
-    if feed.service.photo?
-      google_load_images_script(javascript_callback, feed.uri, content_id)
-    elsif feed.service.bookmark?
-      google_load_bookmarks_script(javascript_callback, feed.uri, content_id)
-    elsif feed.service.video?
-      google_load_videos_script(javascript_callback, feed.uri, content_id)
-    elsif feed.service.music?
-      # TODO need to get music feeds into tag system so that we can search for music feeds and then integrate in a way that can play the tunes.
+    if feed.service.blank?
       google_load_entries_script(javascript_callback, feed.uri, content_id)
-    else
-      google_load_entries_script(javascript_callback, feed.uri, content_id)
+    else      
+      if feed.service.photo?
+        google_load_images_script(javascript_callback, feed.uri, content_id)
+      elsif feed.service.bookmark?
+        google_load_bookmarks_script(javascript_callback, feed.uri, content_id)
+      elsif feed.service.video?
+        google_load_videos_script(javascript_callback, feed.uri, content_id)
+      elsif feed.service.music?
+        # TODO need to get music feeds into tag system so that we can search for music feeds and then integrate in a way that can play the tunes.
+        google_load_entries_script(javascript_callback, feed.uri, content_id)
+      else 
+        google_load_entries_script(javascript_callback, feed.uri, content_id)
+      end
     end
   end
   

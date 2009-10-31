@@ -16,6 +16,9 @@ class ActiveSupport::TestCase
   self.use_transactional_fixtures = true
   self.use_instantiated_fixtures  = true
   
+  TEST_URI = 'http://www.engadget.com'
+  TEST_RSS_URI = 'http://www.engadget.com/rss.xml'
+  
   def ensure_flash(val)
     assert_contains flash.values, val, ", Flash: #{flash.inspect}"
   end

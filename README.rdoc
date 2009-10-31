@@ -1,7 +1,114 @@
 = overlord
 
-A gem to talk to the Google ajax apis.
+Talk to the Google ajax apis and render the results.  This gem contains several method calls and partials to call 
+out to the Google Ajax Apis (http://code.google.com/apis/ajax/).
 
+== Usage
+This gem requires some configuration before it will work in your Rails application:
+You will need a global_config file with 'google_ajax_api_key' defined.  You can set it up thus:
+
+  # Load a global constant so the initializers can use them
+  require 'ostruct'
+  require 'yaml'
+  ::GlobalConfig = OpenStruct.new(YAML.load_file("#{RAILS_ROOT}/config/global_config.yml")[RAILS_ENV])
+
+Then in global_config.yml:
+
+  default: &DEFAULT
+  
+    application_url: localhost:3000
+  
+    # sign up options
+    automatically_activate: true
+    automatically_login_after_account_create: true
+    send_welcome: true
+  
+    application_url: localhost:3000
+  
+    # session key information
+    session_key: _test_session
+    session_secret: 882585c5d472d21e832965410ab233be541ea626e50ed0eb68a00a2f49b59073480e58599404e3dc62105a803ee42d67872e3f95eb48e2d6508b42038436abd6
+
+    # Google related
+    google_ajax_api_key:
+    show_google_search: true        # Determines whether or not a google search is displayed on the topic page
+    load_feeds_on_server: false     # Determines whether feeds on a topic page are loaded on the server or the client.  Loading on the server can take a while
+    combine_feeds_on_server: false  # Combines feeds loaded on the server
+
+  production:
+    <<: *DEFAULT
+  
+  development:
+    <<: *DEFAULT
+  
+  test:
+    <<: *DEFAULT
+
+    application_url: 'localhost:3000'
+
+
+If you want to use the methods 'convert_google_feed_json_to_feed', 'convert_google_find_feeds_json_to_feeds', and 
+'convert_google_feed_json_to_entries' you will also need a Feed and Entry class with specific attributes.  See the rails application
+inside of the test directory for more information on how to create these classes.
+
+  # Required attributes:
+  # :uri, :service_id, :display_uri, :title, :service
+  class Feed < ActiveRecord::Base
+  end
+
+  # tag_list can be from one of the various acts_as_taggable gems. 
+  # Required attributes:
+  # :permalink, :author, :title, :description, :content, :published_at, :tag_list, :direct_link, :feed
+  class Entry < ActiveRecord::Base
+  end
+              
+  class Service < ActiveRecord::Base
+    # Selects and caches all services from the database.
+    # 
+    # refresh_services:     By default all tag services are cached.  Setting this value to true
+    #                       will result in the values being repopulated from the database
+    def self.get_services(refresh_services = false)
+      @all_services = nil if refresh_services
+      @all_services ||= Service.all
+    end
+  
+    # Attempts to find a service object using a uri
+    #
+    # uri:              Uri to search for.  This method will attempt to all services for any part of the provided uri.
+    # refresh_services: Forces a refresh of the services.  By default the services are cached for the duration of the request.
+    def self.find_service_by_uri(uri, refresh_services = false)
+      service = get_services(refresh_services).detect { |service| service.uri && service.uri.length > 0 && (uri.include?(service.uri) || service.uri.include?(uri)) }
+      service ||= default_service
+      service
+    end
+  end
+  
+  create_table "entries", :force => true do |t|
+    t.integer  "feed_id",                                                                    :null => false
+    t.string   "permalink",               :limit => 2083, :default => "",                    :null => false
+    t.string   "author",                  :limit => 2083
+    t.text     "title",                                                                      :null => false
+    t.text     "description"
+    t.text     "content"
+    t.datetime "published_at",                                                               :null => false
+    t.string   "direct_link",             :limit => 2083
+   end
+
+  create_table "feeds", :force => true do |t|
+    t.string   "uri",                        :limit => 2083
+    t.string   "display_uri",                :limit => 2083
+    t.string   "title",                      :limit => 1000
+    t.integer  "service_id",                                 :default => 0
+    t.string   "login"
+  end
+  
+  create_table "services", :force => true do |t|
+    t.string  "uri",                 :limit => 2083, :default => ""
+    t.string  "name",                :limit => 1000, :default => ""
+    t.string  "api_uri",             :limit => 2083, :default => ""
+    t.string  "uri_key"
+  end
+                         
 == Copyright
 
 Copyright (c) 2009 Justin Ball. See LICENSE for details.
