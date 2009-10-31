@@ -170,16 +170,20 @@ module OverlordGoogleHelper
   end
   
   def google_muck_load_callback_script(feed, content_id, number_of_items = 4, number_of_images = 6, number_of_videos = 6)
-    if feed.service.photo?
-      "google_load_images('#{feed.uri}', '#{content_id}', #{number_of_images});"
-    elsif feed.service.bookmark?
-      "google_load_bookmarks('#{feed.uri}', '#{content_id}', #{number_of_items});"
-    elsif feed.service.video?
-      "google_load_videos('#{feed.uri}', '#{content_id}', #{number_of_videos});"
-    elsif feed.service.music?
+    if feed.service.blank?
       "google_load_entries('#{feed.uri}', '#{content_id}', #{number_of_items});"
     else
-      "google_load_entries('#{feed.uri}', '#{content_id}', #{number_of_items});"
+      if feed.service.photo?
+        "google_load_images('#{feed.uri}', '#{content_id}', #{number_of_images});"
+      elsif feed.service.bookmark?
+        "google_load_bookmarks('#{feed.uri}', '#{content_id}', #{number_of_items});"
+      elsif feed.service.video?
+        "google_load_videos('#{feed.uri}', '#{content_id}', #{number_of_videos});"
+      elsif feed.service.music?
+        "google_load_entries('#{feed.uri}', '#{content_id}', #{number_of_items});"
+      else
+        "google_load_entries('#{feed.uri}', '#{content_id}', #{number_of_items});"
+      end
     end
   end
   
