@@ -127,6 +127,8 @@ module OverlordGoogleHelper
 
   # Given a feed attempts to assign an appropriate class
   def feed_class(feed)
+    return '' if feed.service.blank?
+    
     if feed.service.photo?
       "feed-photos"
     elsif feed.service.bookmark?
