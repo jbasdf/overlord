@@ -34,6 +34,7 @@ Factory.define :feed do |f|
   f.uri { Factory.next(:uri) }
   f.display_uri { Factory.next(:uri) }
   f.title { Factory.next(:title) }
+  f.service { |a| a.association(:service) }
 end
 
 Factory.define :entry do |f|
@@ -54,4 +55,8 @@ Factory.define :service do |f|
   f.uri { Factory.next(:uri) }
   f.name { Factory.next(:name) }
   f.service_category { |a| a.association(:service_category) }
+end
+
+Factory.define :service_category do |f|
+  f.name { Factory.next(:name) }
 end

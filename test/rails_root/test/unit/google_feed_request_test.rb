@@ -3,7 +3,10 @@ require 'test_helper'
 class GoogleFeedRequestTest < ActiveSupport::TestCase 
   
   context "google feed requests" do
-
+    setup do
+      @service = Factory(:service, :name => 'rss')
+    end
+    
     context "find feeds" do
       setup do
         @feeds = Overlord::GoogleFeedRequest.find_feeds('ruby')

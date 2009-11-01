@@ -1,5 +1,39 @@
 class Service < ActiveRecord::Base
   
+  belongs_to :service_category
+  
+  def photo?
+    false
+  end
+  
+  def video?
+    false
+  end
+  
+  def bookmark?
+    false
+  end
+  
+  def music?
+    false
+  end
+  
+  def news?
+    false
+  end
+  
+  def blog?
+    false
+  end
+  
+  def search?
+    false
+  end
+  
+  def general?
+    true
+  end
+  
   # Selects and caches all services from the database.
   # 
   # refresh_services:     By default all tag services are cached.  Setting this value to true
