@@ -21,6 +21,7 @@ class DefaultController < ApplicationController
   end
   
   def google_slide_show
+    @feed = Feed.new(:uri => 'feed://api.flickr.com/services/feeds/photos_public.gne?tags=autumn&lang=en-us&format=rss_200')
   end
     
   def setup
