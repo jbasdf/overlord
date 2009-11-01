@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{overlord}
-  s.version = "0.1.0"
+  s.version = "0.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Justin Ball"]
@@ -34,6 +34,7 @@ Gem::Specification.new do |s|
      "app/views/google/_slide_show.html.erb",
      "lib/overlord.rb",
      "lib/overlord/google_feed_request.rb",
+     "overlord.gemspec",
      "rails/init.rb",
      "test/rails_root/.gitignore",
      "test/rails_root/.rake_tasks",
@@ -42,6 +43,16 @@ Gem::Specification.new do |s|
      "test/rails_root/app/controllers/default_controller.rb",
      "test/rails_root/app/helpers/application_helper.rb",
      "test/rails_root/app/models/.keep",
+     "test/rails_root/app/models/entry.rb",
+     "test/rails_root/app/models/feed.rb",
+     "test/rails_root/app/models/service.rb",
+     "test/rails_root/app/models/service_category.rb",
+     "test/rails_root/app/views/default/google_combined_feeds.html.erb",
+     "test/rails_root/app/views/default/google_dynamic_feeds_vertical.html.erb",
+     "test/rails_root/app/views/default/google_feed_search.html.erb",
+     "test/rails_root/app/views/default/google_feeds.html.erb",
+     "test/rails_root/app/views/default/google_search.html.erb",
+     "test/rails_root/app/views/default/google_slide_show.html.erb",
      "test/rails_root/app/views/default/index.html.erb",
      "test/rails_root/app/views/layouts/default.html.erb",
      "test/rails_root/config/amazon_s3.yml",
@@ -59,6 +70,11 @@ Gem::Specification.new do |s|
      "test/rails_root/config/initializers/session_store.rb",
      "test/rails_root/config/routes.rb",
      "test/rails_root/db/.keep",
+     "test/rails_root/db/migrate/20091031181115_create_sessions.rb",
+     "test/rails_root/db/migrate/20091031185622_create_feeds.rb",
+     "test/rails_root/db/migrate/20091031185627_create_services.rb",
+     "test/rails_root/db/migrate/20091031185634_create_entries.rb",
+     "test/rails_root/db/migrate/20091031215610_create_service_categories.rb",
      "test/rails_root/features/feeds.feature",
      "test/rails_root/features/step_definitions/common_steps.rb",
      "test/rails_root/features/step_definitions/visit_steps.rb",
@@ -561,8 +577,7 @@ Gem::Specification.new do |s|
      "test/rails_root/test/shoulda_macros/plugins.rb",
      "test/rails_root/test/test_helper.rb",
      "test/rails_root/test/unit/.keep",
-     "test/rails_root/test/unit/google_feed_request_test.rb",
-     "test/test_helper.rb"
+     "test/rails_root/test/unit/google_feed_request_test.rb"
   ]
   s.homepage = %q{http://github.com/jbasdf/overlord}
   s.rdoc_options = ["--charset=UTF-8"]
@@ -573,6 +588,10 @@ Gem::Specification.new do |s|
     "test/rails_root/app/controllers/application_controller.rb",
      "test/rails_root/app/controllers/default_controller.rb",
      "test/rails_root/app/helpers/application_helper.rb",
+     "test/rails_root/app/models/entry.rb",
+     "test/rails_root/app/models/feed.rb",
+     "test/rails_root/app/models/service.rb",
+     "test/rails_root/app/models/service_category.rb",
      "test/rails_root/config/boot.rb",
      "test/rails_root/config/environment.rb",
      "test/rails_root/config/environments/cucumber.rb",
@@ -585,6 +604,10 @@ Gem::Specification.new do |s|
      "test/rails_root/config/initializers/session_store.rb",
      "test/rails_root/config/routes.rb",
      "test/rails_root/db/migrate/20091031181115_create_sessions.rb",
+     "test/rails_root/db/migrate/20091031185622_create_feeds.rb",
+     "test/rails_root/db/migrate/20091031185627_create_services.rb",
+     "test/rails_root/db/migrate/20091031185634_create_entries.rb",
+     "test/rails_root/db/migrate/20091031215610_create_service_categories.rb",
      "test/rails_root/features/step_definitions/common_steps.rb",
      "test/rails_root/features/step_definitions/visit_steps.rb",
      "test/rails_root/features/step_definitions/webrat_steps.rb",
@@ -600,8 +623,7 @@ Gem::Specification.new do |s|
      "test/rails_root/test/shoulda_macros/pagination.rb",
      "test/rails_root/test/shoulda_macros/plugins.rb",
      "test/rails_root/test/test_helper.rb",
-     "test/rails_root/test/unit/google_feed_request_test.rb",
-     "test/test_helper.rb"
+     "test/rails_root/test/unit/google_feed_request_test.rb"
   ]
 
   if s.respond_to? :specification_version then
