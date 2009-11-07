@@ -4,6 +4,8 @@ Talk to the Google ajax apis and render the results.  This gem contains several 
 out to the Google Ajax Apis (http://code.google.com/apis/ajax/).
 
 == Usage
+
+=== Settings
 This gem requires some configuration before it will work in your Rails application:
 You will need a global_config file with 'google_ajax_api_key' defined.  You can set it up thus:
 
@@ -46,9 +48,9 @@ Then in global_config.yml:
 
     application_url: 'localhost:3000'
 
-
+=== Models
 If you want to use the methods 'convert_google_feed_json_to_feed', 'convert_google_find_feeds_json_to_feeds', and 
-'convert_google_feed_json_to_entries' you will also need a Feed and Entry class with specific attributes.  See the rails application
+'convert_google_feed_json_to_entries' you will also need a Feed, Service and Entry class with specific attributes.  See the rails application
 inside of the test directory for more information on how to create these classes.
 
   # Required attributes:
