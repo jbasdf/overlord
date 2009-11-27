@@ -125,6 +125,20 @@ module OverlordGoogleHelper
     render :partial => 'google/slide_show', :locals => { :feed => feed, :content_id => content_id, :options => options }
   end
 
+  # Generate a google map that includes the location of each item in 
+  # mapped_objects.  Each object in mapped_objects must define a lat and lng attribute.
+  # 
+  # mapped_objects:  Collection of objects to be mapped.
+  # content_id: Name of the div that will hold the widget google generates.
+  #             If this method is called more than once on a given page then you will need to 
+  #             specify different content_ids for each call.
+  # options:    A hash containing the values to pass to the Google widget.
+  def google_map(mapped_objects,
+                content_id = 'map_content',
+                options = {})
+    render :partial => 'google/map', :locals => { :mapped_objects => mapped_objects, :content_id => content_id, :options => options }
+  end
+  
   # Given a feed attempts to assign an appropriate class
   def feed_class(feed)
     return '' if feed.service.blank?
@@ -285,6 +299,13 @@ module OverlordGoogleHelper
     return '' if defined?(@google_load_search_included)
     @google_load_search_included = true
     google_ajax_api_scripts + '<script type="text/javascript">google.load("search", "1");</script>'
+  end
+  
+  # Output include script for google maps
+  def google_load_maps
+    return '' if defined?(@google_load_maps_included)
+    @google_load_maps_included = true
+    google_ajax_api_scripts + '<script type="text/javascript">google.load("maps", "2");</script>'
   end
   
   # Output include script to load jquery from google

@@ -9,9 +9,9 @@ begin
     gem.name = "overlord"
     gem.summary = "Talk with our Google overlords"
     gem.description = "Code to interact with the google ajax apis on the server and the client."
-    gem.email = "justinball@gmail.com"
+    gem.email = "justin@tatemae.com"
     gem.homepage = "http://github.com/jbasdf/overlord"
-    gem.authors = ["Justin Ball"]
+    gem.authors = ["Justin Ball", "Joel Duffin"]
     gem.add_development_dependency "thoughtbot-shoulda"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end

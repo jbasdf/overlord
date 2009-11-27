@@ -1,0 +1,56 @@
+<% content_for :head do -%>
+  <%= google_load_maps -%>
+<% end -%>
+
+<script type="text/javascript">
+google.setOnLoadCallback(function() {
+  if (google.maps.BrowserIsCompatible()) {
+    var map = new google.maps.Map2(document.getElementById("<%=content_id%>"));
+    map.setCenter(new google.maps.LatLng(37.4419, -122.1419), 13);
+    map.addControl(new google.maps.SmallMapControl());
+    map.addControl(new google.maps.MapTypeControl());
+
+    // Create a base icon for all of our markers that specifies the
+    // shadow, icon dimensions, etc.
+    var baseIcon = new google.maps.Icon(G_DEFAULT_ICON);
+    baseIcon.shadow = "http://www.google.com/mapfiles/shadow50.png";
+    baseIcon.iconSize = new google.maps.Size(20, 34);
+    baseIcon.shadowSize = new google.maps.Size(37, 34);
+    baseIcon.iconAnchor = new google.maps.Point(9, 34);
+    baseIcon.infoWindowAnchor = new google.maps.Point(9, 2);
+
+    // Creates a marker whose info window displays the letter corresponding
+    // to the given index.
+    function createMarker(point, index) {
+      // Create a lettered icon for this point using our icon class
+      var letter = String.fromCharCode("A".charCodeAt(0) + index);
+      var letteredIcon = new google.maps.Icon(baseIcon);
+      letteredIcon.image = "http://www.google.com/mapfiles/marker" + letter + ".png";
+
+      // Set up our google.maps.MarkerOptions object
+      markerOptions = { icon:letteredIcon };
+      var marker = new google.maps.Marker(point, markerOptions);
+
+      google.maps.Event.addListener(marker, "click", function() {
+        marker.openInfoWindowHtml("Marker <b>" + letter + "</b>");
+      });
+      return marker;
+    }
+
+    // Add 10 markers to the map at random locations
+    var bounds = map.getBounds();
+    var southWest = bounds.getSouthWest();
+    var northEast = bounds.getNorthEast();
+    var lngSpan = northEast.lng() - southWest.lng();
+    var latSpan = northEast.lat() - southWest.lat();
+    for (var i = 0; i < 10; i++) {
+      var latlng = new google.maps.LatLng(southWest.lat() + latSpan * Math.random(),
+        southWest.lng() + lngSpan * Math.random());
+      map.addOverlay(createMarker(latlng, i));
+    }
+  }
+});
+</script>
+
+onunload="google.maps.Unload()"
+<div id="<%=content_id%>" style="width: 500px; height: 300px"></div>

@@ -113,4 +113,4 @@ inside of the test directory for more information on how to create these classes
                          
 == Copyright
 
-Copyright (c) 2009 Justin Ball. See LICENSE for details.
+Copyright (c) 2009 Tatemae. See LICENSE for details.

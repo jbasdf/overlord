@@ -23,7 +23,11 @@ class DefaultController < ApplicationController
   def google_slide_show
     @feed = Feed.new(:uri => 'feed://api.flickr.com/services/feeds/photos_public.gne?tags=autumn&lang=en-us&format=rss_200')
   end
-    
+  
+  def google_map
+    @mapped_objects = []
+  end
+      
   def setup
     @terms = CGI.unescape('mountain biking')
 
