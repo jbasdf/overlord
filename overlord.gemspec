@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Justin Ball", "Joel Duffin"]
-  s.date = %q{2009-10-31}
+  s.date = %q{2009-11-30}
   s.description = %q{Code to interact with the google ajax apis on the server and the client.}
   s.email = %q{justin@tatemae.com}
   s.extra_rdoc_files = [
@@ -30,6 +30,7 @@ Gem::Specification.new do |s|
      "app/views/google/_feed_search.html.erb",
      "app/views/google/_feeds_scripts.html.erb",
      "app/views/google/_hot_trends.html.erb",
+     "app/views/google/_map.html.erb",
      "app/views/google/_search.html.erb",
      "app/views/google/_slide_show.html.erb",
      "lib/overlord.rb",
@@ -51,6 +52,7 @@ Gem::Specification.new do |s|
      "test/rails_root/app/views/default/google_dynamic_feeds_vertical.html.erb",
      "test/rails_root/app/views/default/google_feed_search.html.erb",
      "test/rails_root/app/views/default/google_feeds.html.erb",
+     "test/rails_root/app/views/default/google_map.html.erb",
      "test/rails_root/app/views/default/google_search.html.erb",
      "test/rails_root/app/views/default/google_slide_show.html.erb",
      "test/rails_root/app/views/default/index.html.erb",
@@ -623,7 +625,8 @@ Gem::Specification.new do |s|
      "test/rails_root/test/shoulda_macros/pagination.rb",
      "test/rails_root/test/shoulda_macros/plugins.rb",
      "test/rails_root/test/test_helper.rb",
-     "test/rails_root/test/unit/google_feed_request_test.rb"
+     "test/rails_root/test/unit/google_feed_request_test.rb",
+     "test/rails_root/test/unit/google_search_request_test.rb"
   ]
 
   if s.respond_to? :specification_version then
