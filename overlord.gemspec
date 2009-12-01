@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{overlord}
-  s.version = "0.1.1"
+  s.version = "0.1.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Justin Ball", "Joel Duffin"]
@@ -35,6 +35,7 @@ Gem::Specification.new do |s|
      "app/views/google/_slide_show.html.erb",
      "lib/overlord.rb",
      "lib/overlord/google_feed_request.rb",
+     "lib/overlord/google_search_request.rb",
      "overlord.gemspec",
      "rails/init.rb",
      "test/rails_root/.gitignore",
@@ -579,7 +580,8 @@ Gem::Specification.new do |s|
      "test/rails_root/test/shoulda_macros/plugins.rb",
      "test/rails_root/test/test_helper.rb",
      "test/rails_root/test/unit/.keep",
-     "test/rails_root/test/unit/google_feed_request_test.rb"
+     "test/rails_root/test/unit/google_feed_request_test.rb",
+     "test/rails_root/test/unit/google_search_request_test.rb"
   ]
   s.homepage = %q{http://github.com/jbasdf/overlord}
   s.rdoc_options = ["--charset=UTF-8"]
