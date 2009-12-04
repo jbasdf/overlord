@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{overlord}
-  s.version = "0.1.2"
+  s.version = "0.1.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Justin Ball", "Joel Duffin"]
-  s.date = %q{2009-11-30}
+  s.date = %q{2009-12-04}
   s.description = %q{Code to interact with the google ajax apis on the server and the client.}
   s.email = %q{justin@tatemae.com}
   s.extra_rdoc_files = [
@@ -36,6 +36,50 @@ Gem::Specification.new do |s|
      "lib/overlord.rb",
      "lib/overlord/google_feed_request.rb",
      "lib/overlord/google_search_request.rb",
+     "locales/ar.yml",
+     "locales/bg.yml",
+     "locales/ca.yml",
+     "locales/cs.yml",
+     "locales/da.yml",
+     "locales/de.yml",
+     "locales/el.yml",
+     "locales/en.yml",
+     "locales/es.yml",
+     "locales/et.yml",
+     "locales/fa.yml",
+     "locales/fi.yml",
+     "locales/fr.yml",
+     "locales/gl.yml",
+     "locales/hi.yml",
+     "locales/hr.yml",
+     "locales/hu.yml",
+     "locales/id.yml",
+     "locales/it.yml",
+     "locales/iw.yml",
+     "locales/ja.yml",
+     "locales/ko.yml",
+     "locales/lt.yml",
+     "locales/lv.yml",
+     "locales/mt.yml",
+     "locales/nl.yml",
+     "locales/no.yml",
+     "locales/pl.yml",
+     "locales/pt-PT.yml",
+     "locales/ro.yml",
+     "locales/ru.yml",
+     "locales/sk.yml",
+     "locales/sl.yml",
+     "locales/sq.yml",
+     "locales/sr.yml",
+     "locales/sv.yml",
+     "locales/th.yml",
+     "locales/tl.yml",
+     "locales/tr.yml",
+     "locales/uk.yml",
+     "locales/vi.yml",
+     "locales/zh-CN.yml",
+     "locales/zh-TW.yml",
+     "locales/zh.yml",
      "overlord.gemspec",
      "rails/init.rb",
      "test/rails_root/.gitignore",

@@ -68,6 +68,4 @@ desc 'Translate this gem'
 task :translate do
   file = File.join(File.dirname(__FILE__), 'locales', 'en.yml')
   system("babelphish -o -y #{file}")
-  path = File.join(File.dirname(__FILE__), 'app', 'views', 'raker_mailer')
-  system("babelphish -o -h #{path} -l en")
 end
