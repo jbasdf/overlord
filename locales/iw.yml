@@ -1,0 +1,9 @@
+--- 
+iw: 
+  overlord: 
+    close: סגור
+    loading_image: "טוען תמונה"
+    loading_message: "טוען ..."
+    no_entries_found: "לא נמצאו ערכים"
+    read_more: "קרא עוד"
+    remove: להסיר

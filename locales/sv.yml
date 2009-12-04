@@ -1,0 +1,9 @@
+--- 
+sv: 
+  overlord: 
+    close: Nära
+    loading_image: "Loading Image"
+    loading_message: "Laddar ..."
+    no_entries_found: "Inga uppgifter funna"
+    read_more: Mer
+    remove: Flytta

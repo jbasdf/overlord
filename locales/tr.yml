@@ -1,0 +1,9 @@
+--- 
+tr: 
+  overlord: 
+    close: Kapatmak
+    loading_image: "Resim Yükleniyor"
+    loading_message: "Yükleniyor ..."
+    no_entries_found: "Hiçbir kayıt bulunamadı"
+    read_more: devamı
+    remove: Çıkarmak

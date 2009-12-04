@@ -1,0 +1,9 @@
+--- 
+ca: 
+  overlord: 
+    close: Tancar
+    loading_image: "Carregant Imatge"
+    loading_message: "Carregant ..."
+    no_entries_found: "No hi ha entrades"
+    read_more: "Llegir més"
+    remove: Eliminar

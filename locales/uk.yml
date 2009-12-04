@@ -1,0 +1,9 @@
+--- 
+uk: 
+  overlord: 
+    close: Закрити
+    loading_image: "Триває завантаження зображення"
+    loading_message: "Завантаження ..."
+    no_entries_found: "Немає записів"
+    read_more: "читати далі"
+    remove: Видалити

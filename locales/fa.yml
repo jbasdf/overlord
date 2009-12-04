@@ -1,0 +1,9 @@
+--- 
+fa: 
+  overlord: 
+    close: ببند
+    loading_image: "بارگذاری تصویر"
+    loading_message: "در حال بارگذاری..."
+    no_entries_found: "مطلبی یافت نشد"
+    read_more: "ادامه مطلب"
+    remove: حذف

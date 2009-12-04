@@ -1,0 +1,9 @@
+--- 
+ja: 
+  overlord: 
+    close: 閉じる
+    loading_image: イメージのロード
+    loading_message: 読み込んでいます...
+    no_entries_found: エントリはありませんが見つかりました
+    read_more: 続きを読む
+    remove: 取り外す

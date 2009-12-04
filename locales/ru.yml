@@ -1,0 +1,9 @@
+--- 
+ru: 
+  overlord: 
+    close: Закрыть
+    loading_image: "Идет загрузка изображения"
+    loading_message: "Загрузка ..."
+    no_entries_found: "Нет записей"
+    read_more: "читать дальше"
+    remove: Удалить

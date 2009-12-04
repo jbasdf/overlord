@@ -1,0 +1,9 @@
+--- 
+ro: 
+  overlord: 
+    close: Închide
+    loading_image: "Se incarca Image"
+    loading_message: "Se incarca ..."
+    no_entries_found: "Nr ocaziilor gasite"
+    read_more: "citeste mai mult"
+    remove: Elimina

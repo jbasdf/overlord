@@ -1,0 +1,9 @@
+--- 
+tl: 
+  overlord: 
+    close: "Isara / malapit"
+    loading_image: "Nag-load ng Imahe"
+    loading_message: "Naglo-load ..."
+    no_entries_found: "Walang mga entries na natagpuan"
+    read_more: "read more"
+    remove: Alisin
