@@ -1,0 +1,9 @@
+en:
+  overlord:
+    close: "Close"
+    no_entries_found: "No entries found"
+    read_more: "read more"
+    loading_message: "Loading... "
+    loading_image: "Loading Image"
+    remove: "Remove"
+      

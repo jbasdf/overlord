@@ -225,7 +225,7 @@ module OverlordGoogleHelper
     google_load_template_script 'google_load_entries', javascript_callback, uri, content_id do
       %Q{var status_class = 'even';
       if(i%2 > 0) { status_class = 'odd'; }
-      jQuery('#' + content_id).append('<div class="hentry ' + status_class + '"><h4 class="title"><a class="entry-link" href="#" target="blank">' + item.title + '</a><span class="entry-close"><a class="entry-link-close" href="#">#{t('muck.raker.close')}</a></span></h4><div class="entry">' + item.content + ' <p><a href="' + item.link + '">#{t('muck.raker.read_more')}</a></p></div></div>');}
+      jQuery('#' + content_id).append('<div class="hentry ' + status_class + '"><h4 class="title"><a class="entry-link" href="#" target="blank">' + item.title + '</a><span class="entry-close"><a class="entry-link-close" href="#">#{t('overlord.close')}</a></span></h4><div class="entry">' + item.content + ' <p><a href="' + item.link + '">#{t('overlord.read_more')}</a></p></div></div>');}
     end
   end
 
@@ -255,7 +255,7 @@ module OverlordGoogleHelper
           });
         } 
         if (result.error || result.feed.entries.length <= 0) {
-          jQuery('#' + content_id).append('<div class="hentry">#{t('muck.raker.no_entries_found')}</div>');
+          jQuery('#' + content_id).append('<div class="hentry">#{t('overlord.no_entries_found')}</div>');
         }
       });
     }
