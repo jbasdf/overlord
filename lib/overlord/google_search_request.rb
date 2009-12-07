@@ -5,16 +5,7 @@ module Overlord
   # Google code playground:
   # http://code.google.com/apis/ajax/playground
   #
-  class GoogleSearchRequest
-    include HTTParty
-    format :json
-  
-    # Initialize Google Request.
-    # Parameters:
-    # api_key_id:     Valid Google access key (optional)
-    def initialize(api_key_id = nil)
-      @api_key_id = api_key_id
-    end
+  class GoogleSearchRequest < GoogleBase
   
     # Run a local search
     # Google docs:
@@ -72,13 +63,6 @@ module Overlord
           json['responseData']['results'].collect{ |result| OpenStruct.new(result) }
         end
       end
-    end
-    
-    # Add standard items to the google query
-    def self.build_google_query(query_options)
-      query_options[:v] = '1.0'
-      query_options[:key] = GlobalConfig.google_ajax_api_key if GlobalConfig.google_ajax_api_key
-      query_options
     end
   
   end

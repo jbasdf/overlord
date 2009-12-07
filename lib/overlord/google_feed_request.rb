@@ -5,17 +5,8 @@ module Overlord
   # Google code playground:
   # http://code.google.com/apis/ajax/playground/?exp=search#load_feed
   #
-  class GoogleFeedRequest
-    include HTTParty
-    format :json
-  
-    # Initialize Google Request.
-    # Parameters:
-    # api_key_id:     Valid Google access key (optional)
-    def initialize(api_key_id = nil)
-      @api_key_id = api_key_id
-    end
-  
+  class GoogleFeedRequest < GoogleBase
+
     # Lookup a given feed.  
     def self.lookup_feed(uri)
       get('http://ajax.googleapis.com/ajax/services/feed/lookup', :query => build_google_query({:q => uri}))
@@ -104,13 +95,6 @@ module Overlord
                   :service_id => Service.find_service_by_uri(google_feed['link']).id)
       end
     end
-
-    # Add standard items to the google query
-    def self.build_google_query(query_options)
-      query_options[:v] = '1.0'
-      query_options[:key] = GlobalConfig.google_ajax_api_key if GlobalConfig.google_ajax_api_key
-      query_options
-    end
-  
+    
   end
 end
