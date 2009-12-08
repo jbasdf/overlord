@@ -14,7 +14,8 @@ default: &DEFAULT
   session_secret: 882585c5d472d21e832965410ab233be541ea626e50ed0eb68a00a2f49b59073480e58599404e3dc62105a803ee42d67872e3f95eb48e2d6508b42038436abd6
 
   # Google related
-  google_ajax_api_key:
+  google_ajax_api_key:            # A google ajax api key - http://code.google.com/apis/ajaxsearch/signup.html
+  google_ajax_referer:            # The url of the site making the request.
   show_google_search: true        # Determines whether or not a google search is displayed on the topic page
   load_feeds_on_server: false     # Determines whether feeds on a topic page are loaded on the server or the client.  Loading on the server can take a while
   combine_feeds_on_server: false  # Combines feeds loaded on the server
