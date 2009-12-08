@@ -1,25 +1,24 @@
 module Overlord
 
   class GoogleBase
-    
-    attr_accessor :api_key_id, :referer
-    # include HTTParty
-    # format :json
   
-    # Initialize Google Request.
-    # Parameters:
     # api_key_id:   Valid Google access key (optional)
+    def self.api_key_id=(val)
+      @api_key_id = val
+    end
+    
+    def self.api_key_id
+      @api_key_id
+    end
+    
     # referer:      Url of the website making request.  Required by Google.
-    # def initialize(api_key_id = nil, referer = '')
-    #   @referer = referer
-    #   @api_key_id = api_key_id
-    # end
-    # 
-    # def api_key_id
-    # end
-    # 
-    # def referer
-    # end
+    def self.referer=(val)
+      @referer = val
+    end
+
+    def self.referer
+      @referer
+    end
     
     # Add standard items to the google query
     def self.build_google_query(query_options)
@@ -30,8 +29,11 @@ module Overlord
     end
   
     def self.get(uri, options)
-      debugger
-      buffer = open("#{uri}?#{options.to_params}", "UserAgent" => "Ruby/#{RUBY_VERSION}", "Referer" => self.referer || GlobalConfig.google_ajax_referer).read
+      header_params = { "UserAgent" => "Ruby/#{RUBY_VERSION}" }
+      ref = self.referer || GlobalConfig.google_ajax_referer rescue nil
+      header_params["Referer"] = ref if ref
+      # to_params comes from the httparty gem
+      buffer = open("#{uri}?#{options[:query].to_params}", header_params).read
       JSON.parse(buffer)
     end
     

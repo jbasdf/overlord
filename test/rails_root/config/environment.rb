@@ -15,5 +15,6 @@ end
 
 Rails::Initializer.run do |config|
   config.time_zone = 'UTC'
+  config.gem "httparty"
   config.plugin_locators << TestGemLocator
 end
