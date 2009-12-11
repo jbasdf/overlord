@@ -9,6 +9,10 @@ currently won't work outside that framework.
 === Installation
 Installing the gem should install the dependencies
   sudo gem install overlord
+  
+In case it doesn't install dependencies:
+  sudo gem install httparty
+  sudo gem install crack
 
 === Settings
 This gem requires some configuration before it will work in your Rails application:

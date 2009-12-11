@@ -34,7 +34,22 @@ module Overlord
       header_params["Referer"] = ref if ref
       # to_params comes from the httparty gem
       buffer = open("#{uri}?#{options[:query].to_params}", header_params).read
-      JSON.parse(buffer)
+      
+      # Try the standard parser
+      begin
+        return JSON.parse(buffer)
+      rescue => ex
+        puts ex
+      end
+      
+      # Try the crack parser
+      begin
+        return Crack::JSON.parse(json)
+      rescue => ex
+        puts ex
+      end
+      
+      {}
     end
     
   end
