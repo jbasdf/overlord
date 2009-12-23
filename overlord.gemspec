@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Justin Ball", "Joel Duffin"]
-  s.date = %q{2009-12-22}
+  s.date = %q{2009-12-23}
   s.description = %q{Code to interact with the google ajax apis on the server and the client.}
   s.email = %q{justin@tatemae.com}
   s.extra_rdoc_files = [
@@ -35,7 +35,6 @@ Gem::Specification.new do |s|
      "app/views/google/_slide_show.html.erb",
      "lib/overlord.rb",
      "lib/overlord/google_base.rb",
-     "lib/overlord/google_contacts.rb",
      "lib/overlord/google_feed_request.rb",
      "lib/overlord/google_search_request.rb",
      "locales/ar.yml",
@@ -673,7 +672,6 @@ Gem::Specification.new do |s|
      "test/rails_root/test/shoulda_macros/pagination.rb",
      "test/rails_root/test/shoulda_macros/plugins.rb",
      "test/rails_root/test/test_helper.rb",
-     "test/rails_root/test/unit/google_contacts_test.rb",
      "test/rails_root/test/unit/google_feed_request_test.rb",
      "test/rails_root/test/unit/google_search_request_test.rb"
   ]
