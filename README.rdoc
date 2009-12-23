@@ -46,9 +46,7 @@ Then in global_config.yml:
     show_google_search: true        # Determines whether or not a google search is displayed on the topic page
     load_feeds_on_server: false     # Determines whether feeds on a topic page are loaded on the server or the client.  Loading on the server can take a while
     combine_feeds_on_server: false  # Combines feeds loaded on the server
-    
-    google_oauth_key:               # Consumer key provided by google. - http://code.google.com/apis/accounts/docs/RegistrationForWebAppsAuto.html#register
-    
+   
   production:
     <<: *DEFAULT
   
