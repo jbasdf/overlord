@@ -35,6 +35,7 @@ Gem::Specification.new do |s|
      "app/views/google/_slide_show.html.erb",
      "lib/overlord.rb",
      "lib/overlord/google_base.rb",
+     "lib/overlord/google_contacts.rb",
      "lib/overlord/google_feed_request.rb",
      "lib/overlord/google_search_request.rb",
      "locales/ar.yml",
@@ -672,6 +673,7 @@ Gem::Specification.new do |s|
      "test/rails_root/test/shoulda_macros/pagination.rb",
      "test/rails_root/test/shoulda_macros/plugins.rb",
      "test/rails_root/test/test_helper.rb",
+     "test/rails_root/test/unit/google_contacts_test.rb",
      "test/rails_root/test/unit/google_feed_request_test.rb",
      "test/rails_root/test/unit/google_search_request_test.rb"
   ]

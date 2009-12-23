@@ -39,7 +39,8 @@ module Overlord
       header_params["Referer"] = ref if ref
       header_params = header_params.merge(options[:headers]) if options[:headers]
       # to_params comes from the httparty gem
-      buffer = open("#{uri}?#{options[:query].to_params}", header_params).read
+      params = "?#{options[:query].to_params}" if options[:query]
+      buffer = open("#{uri}#{params}", header_params).read
       
       # Try the standard parser
       begin
