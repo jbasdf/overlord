@@ -27,11 +27,17 @@ module Overlord
       query_options[:key] = key if key
       query_options
     end
-  
+    
+    # Gets and parses json from a given url
+    # uri:      Uri from which to obtain json
+    # options:  Options to be sent
+    #           :query - query
+    #           :headers - headers 
     def self.get(uri, options)
       header_params = { "UserAgent" => "Ruby/#{RUBY_VERSION}" }
       ref = self.referer || GlobalConfig.google_ajax_referer rescue nil
       header_params["Referer"] = ref if ref
+      header_params = header_params.merge(options[:headers]) if options[:headers]
       # to_params comes from the httparty gem
       buffer = open("#{uri}?#{options[:query].to_params}", header_params).read
       
@@ -50,6 +56,14 @@ module Overlord
       end
       
       {}
+    end
+    
+    def self.parse_name(name)
+      return '' if name.blank?
+      names = name.split(' ')
+      return '' if names.length <= 0
+      return [names[0], names[0]] if names.length == 1
+      [names[0], names.slice(1, names.length).join(' ')]
     end
     
   end
