@@ -33,7 +33,7 @@ module Overlord
     # options:  Options to be sent
     #           :query - query
     #           :headers - headers 
-    def self.get(uri, options)
+    def self.get(uri, options = {})
       header_params = { "UserAgent" => "Ruby/#{RUBY_VERSION}" }
       ref = self.referer || GlobalConfig.request_referer rescue nil
       header_params["Referer"] = ref if ref
