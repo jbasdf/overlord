@@ -35,7 +35,7 @@ module Overlord
     #           :headers - headers 
     def self.get(uri, options)
       header_params = { "UserAgent" => "Ruby/#{RUBY_VERSION}" }
-      ref = self.referer || GlobalConfig.google_ajax_referer rescue nil
+      ref = self.referer || GlobalConfig.request_referer rescue nil
       header_params["Referer"] = ref if ref
       header_params = header_params.merge(options[:headers]) if options[:headers]
       # to_params comes from the httparty gem

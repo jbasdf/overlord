@@ -16,7 +16,7 @@ In case it doesn't install dependencies:
 
 === Settings
 This gem requires some configuration before it will work in your Rails application:
-You will need a global_config file with 'google_ajax_api_key' and 'google_ajax_referer' defined.  You can set it up thus:
+You will need a global_config file with 'google_ajax_api_key' and 'request_referer' defined.  You can set it up thus:
 
   # Load a global constant so the initializers can use them
   require 'ostruct'
@@ -42,7 +42,7 @@ Then in global_config.yml:
 
     # Google related
     google_ajax_api_key:            # Google ajax api key
-    google_ajax_referer:            # Website making the request.  Required by Google.
+    request_referer:                # Website making the request.  Required by Google.
     show_google_search: true        # Determines whether or not a google search is displayed on the topic page
     load_feeds_on_server: false     # Determines whether feeds on a topic page are loaded on the server or the client.  Loading on the server can take a while
     combine_feeds_on_server: false  # Combines feeds loaded on the server
