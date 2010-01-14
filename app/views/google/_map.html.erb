@@ -6,8 +6,8 @@
 google.setOnLoadCallback(function() {
   if (google.maps.BrowserIsCompatible()) {
     var map = new google.maps.Map2(document.getElementById("<%=content_id%>"));
-    map.setCenter(new google.maps.LatLng(37.4419, -122.1419), 13);
-    map.addControl(new google.maps.SmallMapControl());
+    map.setCenter(new google.maps.LatLng(<%=center_on.lat%>, <%=center_on.lng%>), <%= options[:zoom] || 13 %>);
+    map.addControl(new google.maps.<%=options[:MapControl] || 'LargeMapControl'%>());
     map.addControl(new google.maps.MapTypeControl());
 
     // Create a base icon for all of our markers that specifies the
@@ -50,7 +50,7 @@ google.setOnLoadCallback(function() {
     }
   }
 });
+jQuery(window).unload( function () { GUnload(); } );
 </script>
 
-onunload="google.maps.Unload()"
 <div id="<%=content_id%>" style="width: 500px; height: 300px"></div>

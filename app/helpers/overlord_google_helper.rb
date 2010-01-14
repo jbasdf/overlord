@@ -126,17 +126,21 @@ module OverlordGoogleHelper
   end
 
   # Generate a google map that includes the location of each item in 
-  # mapped_objects.  Each object in mapped_objects must define a lat and lng attribute.
-  # 
-  # mapped_objects:  Collection of objects to be mapped.
+  #
+  # center_on:       An object that defines a lat and lng attribute that will be used to center the map
+  # mapped_objects:  An array of object each of which must define a lat and lng attribute.
   # content_id: Name of the div that will hold the widget google generates.
   #             If this method is called more than once on a given page then you will need to 
   #             specify different content_ids for each call.
-  # options:    A hash containing the values to pass to the Google widget.
-  def google_map(mapped_objects,
-                content_id = 'map_content',
-                options = {})
-    render :partial => 'google/map', :locals => { :mapped_objects => mapped_objects, :content_id => content_id, :options => options }
+  # options:    A hash containing optional values to pass to the Google widget.
+  #             For example:
+  #                :zoom => 10  # Values from 1-20 that indicate how far to zoom into the map.  Smaller values zoom further out.
+  #                :map_control => 'LargeMapControl'  # LargeMapControl or SmallMapControl depending on what size of map you want to display
+  def google_map(center_on,
+                 mapped_objects,
+                 content_id = 'map_content',
+                 options = {})
+    render :partial => 'google/map', :locals => { :center_on => center_on, :mapped_objects => mapped_objects, :content_id => content_id, :options => options }
   end
   
   # Given a feed attempts to assign an appropriate class
