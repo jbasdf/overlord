@@ -316,14 +316,14 @@ module OverlordGoogleHelper
   def google_load_jquery(version = '1.4.0')
     return '' if defined?(@google_load_jquery_included)
     @google_load_jquery_included = true
-    %Q{#{google_ajax_api_scripts}<script type="text/javascript">google.load("jquery", "#{version}");</script>}
+    %Q{<script src="http://ajax.googleapis.com/ajax/libs/jquery/#{version}/jquery.min.js" type="text/javascript"></script>}
   end
 
   # Output include script to load jquery ui from google
   def google_load_jquery_ui(version = '1.7.2')
     return '' if defined?(@google_load_jquery_ui_included)
     @google_load_jquery_ui_included = true
-    %Q{#{google_ajax_api_scripts}<script type="text/javascript">google.load("jqueryui", "#{version}");</script>}
+    %Q{<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/#{version}/jquery-ui.min.js" type="text/javascript"></script>}
   end
   
   def change_chars(term)
