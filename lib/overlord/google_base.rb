@@ -20,11 +20,21 @@ module Overlord
       @referer
     end
     
+    # userip:      Ip address of user on whose behave a request is made. Helps reduce the chance that google will ban the server.
+    def self.user_ip=(val)
+      @userip = val
+    end
+
+    def self.user_ip
+      @userip
+    end
+    
     # Add standard items to the google query
     def self.build_google_query(query_options)
       key = self.api_key_id || GlobalConfig.google_ajax_api_key rescue ''
       query_options[:v] = '1.0'
       query_options[:key] = key if key
+      query_options[:userip] = self.user_ip if self.user_ip
       query_options
     end
     

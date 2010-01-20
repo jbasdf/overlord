@@ -46,6 +46,16 @@ class GoogleFeedRequestTest < ActiveSupport::TestCase
       end      
     end
     
+    context "set userip as a paramter" do
+      setup do
+        Overlord::GoogleFeedRequest.user_ip = '64.12.50.151'
+        @query = Overlord::GoogleFeedRequest.build_google_query({:q => 'http://www.justinball.com'})
+      end
+      should "get entries from feed" do
+        assert !@query[:userip].blank?
+      end      
+    end
+    
     context "load an array of feeds" do
       setup do
         @feeds = [ Factory(:feed, :uri => 'http://www.justinball.com/feed'), Factory(:feed, :uri => 'http://www.engadget.com/rss.xml'), Factory(:feed, :uri => 'http://www.example.com') ]
