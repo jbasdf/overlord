@@ -1,4 +1,4 @@
-<% content_id = 'test' -%>
+<% content_id ||= feed_content_id(feed) -%>
 <% content_for :head do -%>
   <%= google_ajax_api_scripts -%>
   <%= google_load_feeds -%>
