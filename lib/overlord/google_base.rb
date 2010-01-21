@@ -56,12 +56,13 @@ module Overlord
       begin
         return JSON.parse(buffer)
       rescue => ex
-        puts ex
+        # Let the crack parser try below
+        #puts ex
       end
       
       # Try the crack parser
       begin
-        return Crack::JSON.parse(json)
+        return Crack::JSON.parse(buffer)
       rescue => ex
         puts ex
       end
