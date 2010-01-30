@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{overlord}
-  s.version = "0.1.15"
+  s.version = "0.1.16"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Justin Ball", "Joel Duffin"]
-  s.date = %q{2010-01-25}
+  s.date = %q{2010-01-30}
   s.description = %q{Code to interact with the google ajax apis on the server and the client.}
   s.email = %q{justin@tatemae.com}
   s.extra_rdoc_files = [
