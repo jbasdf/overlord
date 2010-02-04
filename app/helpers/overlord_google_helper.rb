@@ -313,7 +313,7 @@ module OverlordGoogleHelper
   end
   
   # Output include script to load jquery from google
-  def google_load_jquery(http_protocol = 'http://', version = '1.4.0')
+  def google_load_jquery(http_protocol = 'http://', version = '1.4.1')
     return '' if defined?(@google_load_jquery_included)
     @google_load_jquery_included = true
     %Q{<script src="#{http_protocol}ajax.googleapis.com/ajax/libs/jquery/#{version}/jquery.min.js" type="text/javascript"></script>}
