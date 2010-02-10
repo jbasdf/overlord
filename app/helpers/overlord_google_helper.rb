@@ -66,14 +66,16 @@ module OverlordGoogleHelper
   # javascript_callback: Name of a javascript method to call after the feed has finished loading.  The 
   #                      method should accept the feed uri and the content id. ie  feed_callback(uri, content_id).
   def google_feeds(feeds, show_controls = false, number_of_items = 6, number_of_images = 20, number_of_videos = 6, 
-                  use_uri_for_control = false, run_load_scripts = false, javascript_callback = 'google_load_complete')
+                  use_uri_for_control = false, run_load_scripts = false, javascript_callback = 'google_load_complete',
+                  content_id = nil)
     render :partial => 'google/feed', :collection => feeds, :locals => {:number_of_items => number_of_items,
                                                                        :number_of_images => number_of_images,
                                                                        :number_of_videos => number_of_videos,
                                                                        :javascript_callback => javascript_callback,
                                                                        :show_controls => show_controls,
                                                                        :use_uri_for_control => use_uri_for_control,
-                                                                       :run_load_scripts => run_load_scripts}
+                                                                       :run_load_scripts => run_load_scripts,
+                                                                       :content_id => content_id}
   end
 
   # Render combined feed using Google's api
