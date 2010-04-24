@@ -23,7 +23,8 @@ function setup_delete_links() {
       function(data){
         var json = eval('(' + data + ')');
         if(!json.success){
-          <%= jquery_message('#ajax-messages') %>
+          jQuery('#ajax-messages').html(json.message);
+          jQuery('#ajax-messages').show();
         }
       });
     return false;
