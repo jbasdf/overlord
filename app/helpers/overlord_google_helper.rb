@@ -333,10 +333,10 @@ module OverlordGoogleHelper
   # blitzer, cupertino, dark-hive, dot-luv, eggplant, excite-bike, flick, hot-sneaks
   # humanity, le-frog, mint-choc, overcast, pepper-grinder, redmond, smoothness, south-street
   # start, sunny, swanky-purse, trontastic, ui-darkness, ui-lightness, vader
-  def google_load_jquery_ui_css(http_protocol = 'http', theme = "smoothness", version = '1.8.1')
+  def google_load_jquery_ui_css(http_protocol = 'http://', theme = "smoothness", version = '1.8.1')
     return '' if defined?(@google_load_jquery_ui_css_included)
     @google_load_jquery_ui_css_included = true
-    %Q{<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/#{version}/themes/#{theme}/jquery-ui.css" type="text/css" />}
+    %Q{<link rel="stylesheet" href="#{http_protocol}ajax.googleapis.com/ajax/libs/jqueryui/#{version}/themes/#{theme}/jquery-ui.css" type="text/css" />}
   end
   
   def change_chars(term)
