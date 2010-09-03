@@ -322,7 +322,7 @@ module OverlordGoogleHelper
   end
 
   # Output include script to load jquery ui from google
-  def google_load_jquery_ui(http_protocol = 'http://', version = '1.8.1')
+  def google_load_jquery_ui(http_protocol = 'http://', version = '1.8.4')
     return '' if defined?(@google_load_jquery_ui_included)
     @google_load_jquery_ui_included = true
     %Q{<script src="#{http_protocol}ajax.googleapis.com/ajax/libs/jqueryui/#{version}/jquery-ui.min.js" type="text/javascript"></script>}
@@ -333,7 +333,7 @@ module OverlordGoogleHelper
   # blitzer, cupertino, dark-hive, dot-luv, eggplant, excite-bike, flick, hot-sneaks
   # humanity, le-frog, mint-choc, overcast, pepper-grinder, redmond, smoothness, south-street
   # start, sunny, swanky-purse, trontastic, ui-darkness, ui-lightness, vader
-  def google_load_jquery_ui_css(http_protocol = 'http://', theme = "smoothness", version = '1.8.1')
+  def google_load_jquery_ui_css(http_protocol = 'http://', theme = "smoothness", version = '1.8.4')
     return '' if defined?(@google_load_jquery_ui_css_included)
     @google_load_jquery_ui_css_included = true
     %Q{<link rel="stylesheet" href="#{http_protocol}ajax.googleapis.com/ajax/libs/jqueryui/#{version}/themes/#{theme}/jquery-ui.css" type="text/css" />}
