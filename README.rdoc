@@ -91,6 +91,22 @@ inside of the test directory for more information on how to create these classes
     t.string  "api_uri",             :limit => 2083, :default => ""
     t.string  "uri_key"
   end
+
+== Testing
+
+If you want to run the test application you will need to add a file with your google credentials
+Create a file 'test/rails_test/config.googl.yml'
+
+  default: &DEFAULT
+  
+    google_ajax_api_key: 'YOUR GOOGLE AJAX API KEY from http://code.google.com/apis/ajaxsearch/signup.html'
+    request_referer: 'www.example.com'
+         
+  development:
+    <<: *DEFAULT
+  
+  test:
+    <<: *DEFAULT
                          
 == Copyright
 
