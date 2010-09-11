@@ -1,9 +1,0 @@
---- 
-lt: 
-  overlord: 
-    close: Uždaryti
-    loading_image: "Loading Image"
-    loading_message: "Kraunasi ..."
-    no_entries_found: "No entries found"
-    read_more: Daugiau
-    remove: Pašalinti

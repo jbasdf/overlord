@@ -1,0 +1,9 @@
+--- 
+hi: 
+  overlord: 
+    close: पास
+    loading_image: "लोड हो रहा है छवि"
+    loading_message: "लोड हो रहा है ..."
+    no_entries_found: "कोई प्रविष्टि नहीं मिली"
+    read_more: "और अधिक पढ़ें"
+    remove: निकालें

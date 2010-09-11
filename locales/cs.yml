@@ -1,9 +1,0 @@
---- 
-cs: 
-  overlord: 
-    close: Zavřít
-    loading_image: "Načítání obrázků"
-    loading_message: "Loading ..."
-    no_entries_found: "Nebyly nalezeny žádné záznamy"
-    read_more: více
-    remove: Odebrat

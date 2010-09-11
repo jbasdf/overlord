@@ -1,0 +1,9 @@
+--- 
+id: 
+  overlord: 
+    close: Dekat
+    loading_image: "Loading Image"
+    loading_message: "Loading ..."
+    no_entries_found: "Tidak ada entri yang ditemukan"
+    read_more: "read more"
+    remove: Menghapus

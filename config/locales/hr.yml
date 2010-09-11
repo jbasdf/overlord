@@ -1,0 +1,9 @@
+--- 
+hr: 
+  overlord: 
+    close: Zatvoriti
+    loading_image: "Loading Image"
+    loading_message: "Loading ..."
+    no_entries_found: "Zapis nije pronađen"
+    read_more: "pročitajte više"
+    remove: Ukloniti

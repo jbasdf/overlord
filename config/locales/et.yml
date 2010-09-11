@@ -1,0 +1,9 @@
+--- 
+et: 
+  overlord: 
+    close: Lähedal
+    loading_image: "Loading Image"
+    loading_message: "Loading ..."
+    no_entries_found: "Nr Sissekanded leitud"
+    read_more: "Loe edasi"
+    remove: Kõrvaldama

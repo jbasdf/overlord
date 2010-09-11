@@ -1,0 +1,9 @@
+--- 
+th: 
+  overlord: 
+    close: ปิด
+    loading_image: "Image Loading"
+    loading_message: "Loading ..."
+    no_entries_found: ไม่พบรายการ
+    read_more: "read more"
+    remove: เอาออก

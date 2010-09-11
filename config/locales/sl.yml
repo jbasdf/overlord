@@ -1,0 +1,9 @@
+--- 
+sl: 
+  overlord: 
+    close: Zapri
+    loading_image: "Nalaganje slik"
+    loading_message: "Nalaganje ..."
+    no_entries_found: "Nobenih vnosov najdenih"
+    read_more: "preberi več"
+    remove: Odstrani

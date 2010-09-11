@@ -1,0 +1,9 @@
+--- 
+ar: 
+  overlord: 
+    close: أغلق
+    loading_image: "تحميل صورة"
+    loading_message: تحميل...
+    no_entries_found: "لم يتم العثور على إدخالات"
+    read_more: "قراءة المزيد"
+    remove: إزالة

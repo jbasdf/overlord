@@ -1,0 +1,9 @@
+--- 
+uk: 
+  overlord: 
+    close: Близько
+    loading_image: "Завантаження зображень"
+    loading_message: "Завантаження ..."
+    no_entries_found: "Немає записів"
+    read_more: докладніше
+    remove: Видаляти

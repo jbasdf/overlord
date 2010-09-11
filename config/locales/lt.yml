@@ -1,0 +1,9 @@
+--- 
+lt: 
+  overlord: 
+    close: Arti
+    loading_image: "Kraunasi vaizdo"
+    loading_message: "Loading ..."
+    no_entries_found: "Nėra įrašų rasta"
+    read_more: "Skaityti daugiau"
+    remove: Pašalinti

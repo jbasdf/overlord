@@ -1,0 +1,9 @@
+--- 
+el: 
+  overlord: 
+    close: Κοντά
+    loading_image: "Φόρτωση εικόνας"
+    loading_message: "Φόρτωση ..."
+    no_entries_found: "Δεν βρέθηκαν καταχωρήσεις"
+    read_more: "διαβάστε περισσότερα"
+    remove: Αφαιρέστε

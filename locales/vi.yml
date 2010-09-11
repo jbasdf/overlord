@@ -1,9 +1,0 @@
---- 
-vi: 
-  overlord: 
-    close: Đóng
-    loading_image: "Loading Hình"
-    loading_message: "Loading ..."
-    no_entries_found: "Không có mục hàng"
-    read_more: "chi tiết"
-    remove: "Loại bỏ"

@@ -1,0 +1,9 @@
+--- 
+it: 
+  overlord: 
+    close: Chiudere
+    loading_image: "Caricamento delle immagini"
+    loading_message: "Caricamento in corso ..."
+    no_entries_found: "Nessun risultato trovato"
+    read_more: "Per saperne di più"
+    remove: Rimuovere

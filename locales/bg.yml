@@ -1,9 +1,0 @@
---- 
-bg: 
-  overlord: 
-    close: Затварям
-    loading_image: "Зареждане на изображението"
-    loading_message: "Loading ..."
-    no_entries_found: "Няма записи намерени"
-    read_more: "прочети повече"
-    remove: Махам

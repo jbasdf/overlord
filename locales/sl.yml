@@ -1,9 +1,0 @@
---- 
-sl: 
-  overlord: 
-    close: Blizu
-    loading_image: "Nalaganje slike"
-    loading_message: "Nalaganje ..."
-    no_entries_found: "No vnosi najti"
-    read_more: "preberi več"
-    remove: Odstraniti

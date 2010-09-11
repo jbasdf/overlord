@@ -1,0 +1,9 @@
+--- 
+fr: 
+  overlord: 
+    close: Fermer
+    loading_image: "Chargement de l&#39;image"
+    loading_message: "Chargement en cours ..."
+    no_entries_found: "Aucun article trouvé"
+    read_more: "lire la suite"
+    remove: Supprimer

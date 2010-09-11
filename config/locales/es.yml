@@ -1,0 +1,9 @@
+--- 
+es: 
+  overlord: 
+    close: Cerrar
+    loading_image: "Cargando Imagen"
+    loading_message: "Cargando ..."
+    no_entries_found: "No se encontraron elementos"
+    read_more: "leer más"
+    remove: Eliminar

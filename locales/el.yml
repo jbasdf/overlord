@@ -1,9 +1,0 @@
---- 
-el: 
-  overlord: 
-    close: Κλείνω
-    loading_image: "Φόρτωση εικόνας"
-    loading_message: "Loading ..."
-    no_entries_found: "Δεν βρέθηκαν εγγραφές"
-    read_more: "διαβάστε περισσότερα"
-    remove: Αφαιρώ

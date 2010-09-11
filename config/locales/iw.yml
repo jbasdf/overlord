@@ -1,0 +1,9 @@
+--- 
+iw: 
+  overlord: 
+    close: קרוב
+    loading_image: "טעינת תמונה"
+    loading_message: "טוען ..."
+    no_entries_found: "לא נמצאו ערכים"
+    read_more: "לפרטים נוספים"
+    remove: להסיר

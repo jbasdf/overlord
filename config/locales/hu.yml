@@ -1,0 +1,9 @@
+--- 
+hu: 
+  overlord: 
+    close: Közeli
+    loading_image: "Kép betöltése"
+    loading_message: "Loading ..."
+    no_entries_found: "Nem találtam bejegyzéseket"
+    read_more: tovább
+    remove: Eltávolít

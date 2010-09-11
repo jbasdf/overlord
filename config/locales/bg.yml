@@ -1,0 +1,9 @@
+--- 
+bg: 
+  overlord: 
+    close: Близо
+    loading_image: "Зареждане на изображението"
+    loading_message: "Зарежда се ..."
+    no_entries_found: "Не са намерени записи"
+    read_more: "прочети повече"
+    remove: Премествам

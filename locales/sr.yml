@@ -1,9 +1,0 @@
---- 
-sr: 
-  overlord: 
-    close: Затворити
-    loading_image: "Лоадинг имаге"
-    loading_message: "Учитавање ..."
-    no_entries_found: "Нема ставки пронађено"
-    read_more: "прочитај више"
-    remove: Уклонити

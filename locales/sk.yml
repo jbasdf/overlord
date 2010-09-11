@@ -1,9 +1,0 @@
---- 
-sk: 
-  overlord: 
-    close: Zavrieť
-    loading_image: "Načítanie súborov"
-    loading_message: "Loading ..."
-    no_entries_found: "Neboli nájdené žiadne záznamy"
-    read_more: viac
-    remove: Odstrániť

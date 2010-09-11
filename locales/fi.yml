@@ -1,9 +1,0 @@
---- 
-fi: 
-  overlord: 
-    close: Sulje
-    loading_image: "Loading Image"
-    loading_message: "Loading ..."
-    no_entries_found: "Ei merkintöjä löytynyt"
-    read_more: Lisää
-    remove: Poistaa

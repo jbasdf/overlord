@@ -1,0 +1,9 @@
+--- 
+sv: 
+  overlord: 
+    close: Stäng
+    loading_image: "Laddar bild"
+    loading_message: "Laddar ..."
+    no_entries_found: "Inga poster hittades"
+    read_more: "Läs mer"
+    remove: "Ta bort"

@@ -1,0 +1,9 @@
+--- 
+sk: 
+  overlord: 
+    close: Zatvoriť
+    loading_image: "Načítanie obrázkov"
+    loading_message: "Loading ..."
+    no_entries_found: "Neboli nájdené žiadne záznamy"
+    read_more: "Prečítajte si viac"
+    remove: Odstrániť

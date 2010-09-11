@@ -1,0 +1,9 @@
+--- 
+ro: 
+  overlord: 
+    close: Aproape
+    loading_image: "Se incarca imaginea"
+    loading_message: "Se incarca ..."
+    no_entries_found: "Nu găsit înregistrări"
+    read_more: "citeste mai mult"
+    remove: Elimina

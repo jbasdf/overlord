@@ -1,0 +1,9 @@
+--- 
+nl: 
+  overlord: 
+    close: Dicht
+    loading_image: "Afbeelding wordt geladen"
+    loading_message: "Loading ..."
+    no_entries_found: "Geen items gevonden"
+    read_more: "lees meer"
+    remove: Verwijderen

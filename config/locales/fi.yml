@@ -1,0 +1,9 @@
+--- 
+fi: 
+  overlord: 
+    close: Lähellä
+    loading_image: "Loading Image"
+    loading_message: "Loading ..."
+    no_entries_found: "Ei hakutuloksia"
+    read_more: "Lue lisää"
+    remove: Poistaa

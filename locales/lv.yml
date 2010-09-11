@@ -1,9 +1,0 @@
---- 
-lv: 
-  overlord: 
-    close: Aizvērt
-    loading_image: "Loading Image"
-    loading_message: "Loading ..."
-    no_entries_found: "Vērtējumu nav atrasts"
-    read_more: "lasīt vairāk"
-    remove: Aizvākt

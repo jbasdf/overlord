@@ -16,47 +16,18 @@ In case it doesn't install dependencies:
 
 === Settings
 This gem requires some configuration before it will work in your Rails application:
-You will need a global_config file with 'google_ajax_api_key' and 'request_referer' defined.  You can set it up thus:
+You will need an initializer file with 'google_ajax_api_key' and 'request_referer' defined.  You can set it up thus:
 
-  # Load a global constant so the initializers can use them
-  require 'ostruct'
-  require 'yaml'
-  ::GlobalConfig = OpenStruct.new(YAML.load_file("#{RAILS_ROOT}/config/global_config.yml")[RAILS_ENV])
+In initializers/overlord.rb
 
-Then in global_config.yml:
-
-  default: &DEFAULT
-  
-    application_url: localhost:3000
-  
-    # sign up options
-    automatically_activate: true
-    automatically_login_after_account_create: true
-    send_welcome: true
-  
-    application_url: localhost:3000
-  
-    # session key information
-    session_key: _test_session
-    session_secret: 882585c5d472d21e832965410ab233be541ea626e50ed0eb68a00a2f49b59073480e58599404e3dc62105a803ee42d67872e3f95eb48e2d6508b42038436abd6
-
-    # Google related
-    google_ajax_api_key:            # Google ajax api key
-    request_referer:                # Website making the request.  Required by Google.
-    show_google_search: true        # Determines whether or not a google search is displayed on the topic page
-    load_feeds_on_server: false     # Determines whether feeds on a topic page are loaded on the server or the client.  Loading on the server can take a while
-    combine_feeds_on_server: false  # Combines feeds loaded on the server
-   
-  production:
-    <<: *DEFAULT
-  
-  development:
-    <<: *DEFAULT
-  
-  test:
-    <<: *DEFAULT
-
-    application_url: 'localhost:3000'
+  Overlord.configure do |config|
+    config.google_ajax_api_key = ''         # A google ajax api key - http://code.google.com/apis/ajaxsearch/signup.html
+    config.request_referer = ''             # The url of the site making the request.
+    config.show_google_search = true        # Determines whether or not a google search is displayed on the topic page
+    config.load_feeds_on_server = false     # Determines whether feeds on a topic page are loaded on the server or the client.  Loading on the server can take a while
+    config.combine_feeds_on_server = false  # Combines feeds loaded on the server
+    config.google_ad_partner_pub            # Ad partner id (optional) used for 'searchControl.enableAds'
+  end
 
 === Models
 If you want to use the methods 'convert_google_feed_json_to_feed', 'convert_google_find_feeds_json_to_feeds', and 
@@ -123,4 +94,4 @@ inside of the test directory for more information on how to create these classes
                          
 == Copyright
 
-Copyright (c) 2009 Tatemae.com. See LICENSE for details.
+Copyright (c) 2009-2010 Tatemae.com. See LICENSE for details.

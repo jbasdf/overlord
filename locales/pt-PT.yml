@@ -1,9 +1,0 @@
---- 
-pt-PT: 
-  overlord: 
-    close: Fechar
-    loading_image: "Carregando imagem"
-    loading_message: "Carregando ..."
-    no_entries_found: "Não foram encontradas entradas"
-    read_more: "leia mais"
-    remove: Remover

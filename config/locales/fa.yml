@@ -1,0 +1,9 @@
+--- 
+fa: 
+  overlord: 
+    close: بستن
+    loading_image: "در حال بارگذاری تصویر"
+    loading_message: "در حال بارگذاری..."
+    no_entries_found: "هیچ ورودی در بر داشت"
+    read_more: "ادامه مطلب"
+    remove: برداشتن

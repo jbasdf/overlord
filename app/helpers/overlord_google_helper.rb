@@ -280,7 +280,7 @@ module OverlordGoogleHelper
   def google_ajax_api_scripts
     return '' if defined?(@google_ajax_api_scripts_included)
     script = '<script type="text/javascript" src="http://www.google.com/jsapi'
-    script << "?key=#{GlobalConfig.google_ajax_api_key}" if GlobalConfig.google_ajax_api_key
+    script << "?key=#{Overlord.configuration.google_ajax_api_key}" if Overlord.configuration.google_ajax_api_key
     script << '"></script>'
     @google_ajax_api_scripts_included = true
     script

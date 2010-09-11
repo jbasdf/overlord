@@ -14,7 +14,6 @@ begin
     gem.authors = ["Justin Ball", "Joel Duffin"]
     gem.add_dependency "httparty"
     gem.add_development_dependency "shoulda"
-    # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError
@@ -67,6 +66,6 @@ end
 
 desc 'Translate this gem'
 task :translate do
-  file = File.join(File.dirname(__FILE__), 'locales', 'en.yml')
+  file = File.join(File.dirname(__FILE__), 'config', 'locales', 'en.yml')
   system("babelphish -o -y #{file}")
 end

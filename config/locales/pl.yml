@@ -1,0 +1,9 @@
+--- 
+pl: 
+  overlord: 
+    close: Blisko
+    loading_image: "Wczytywanie obrazków"
+    loading_message: "Trwa ładowanie ..."
+    no_entries_found: "Nie znaleziono wpisów"
+    read_more: "czytaj więcej"
+    remove: Usunąć

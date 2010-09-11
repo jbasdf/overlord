@@ -1,0 +1,9 @@
+--- 
+gl: 
+  overlord: 
+    close: Pechar
+    loading_image: "Cargando Imaxe"
+    loading_message: "Cargando ..."
+    no_entries_found: "Non se atoparon entradas"
+    read_more: "ler máis"
+    remove: Eliminar

@@ -1,0 +1,9 @@
+--- 
+sr: 
+  overlord: 
+    close: Близу
+    loading_image: "Лоадинг Имаге"
+    loading_message: "Лоадинг ..."
+    no_entries_found: "Нема уноса пронађен"
+    read_more: "прочитај више"
+    remove: Уклонити

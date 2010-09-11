@@ -2,6 +2,8 @@ module Overlord
 
   class GoogleBase
   
+    extend Overlord::JsonParser
+    
     # api_key_id:   Valid Google access key (optional)
     def self.api_key_id=(val)
       @api_key_id = val
@@ -31,7 +33,7 @@ module Overlord
     
     # Add standard items to the google query
     def self.build_google_query(query_options)
-      key = self.api_key_id || GlobalConfig.google_ajax_api_key rescue ''
+      key = self.api_key_id || Overlord.configuration.google_ajax_api_key rescue ''
       query_options[:v] = '1.0'
       query_options[:key] = key if key
       query_options[:userip] = self.user_ip if self.user_ip
@@ -45,29 +47,14 @@ module Overlord
     #           :headers - headers 
     def self.get(uri, options = {})
       header_params = { "UserAgent" => "Ruby/#{RUBY_VERSION}" }
-      ref = self.referer || GlobalConfig.request_referer rescue nil
+      ref = self.referer || Overlord.configuration.request_referer rescue nil
       header_params["Referer"] = ref if ref
       header_params = header_params.merge(options[:headers]) if options[:headers]
       # to_params comes from the httparty gem
       params = "?#{options[:query].to_params}" if options[:query]
       buffer = open("#{uri}#{params}", header_params).read
       
-      # Try the standard parser
-      begin
-        return JSON.parse(buffer)
-      rescue => ex
-        # Let the crack parser try below
-        #puts ex
-      end
-      
-      # Try the crack parser
-      begin
-        return Crack::JSON.parse(buffer)
-      rescue => ex
-        puts ex
-      end
-      
-      {}
+      return parse_json(buffer) || {}
     end
     
     def self.parse_name(name)

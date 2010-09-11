@@ -1,0 +1,9 @@
+--- 
+tr: 
+  overlord: 
+    close: Yakın
+    loading_image: "Loading Image"
+    loading_message: "Yükleniyor ..."
+    no_entries_found: "Hiçbir giriş bulunamadı"
+    read_more: devamı
+    remove: Kaldırmak

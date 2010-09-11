@@ -1,0 +1,9 @@
+--- 
+sq: 
+  overlord: 
+    close: Afër
+    loading_image: "Loading Image"
+    loading_message: "Loading ..."
+    no_entries_found: "Nuk ka hyrje gjetur"
+    read_more: "lexo më shumë"
+    remove: Heq

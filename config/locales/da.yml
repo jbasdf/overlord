@@ -1,0 +1,9 @@
+--- 
+da: 
+  overlord: 
+    close: Luk
+    loading_image: "Henter billedet"
+    loading_message: "Loading ..."
+    no_entries_found: "Ingen poster fundet"
+    read_more: "Læs mere"
+    remove: Fjern

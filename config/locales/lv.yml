@@ -1,0 +1,9 @@
+--- 
+lv: 
+  overlord: 
+    close: Aizvērt
+    loading_image: "Loading Image"
+    loading_message: "Loading ..."
+    no_entries_found: "Nav ierakstu atrasts"
+    read_more: "lasīt vairāk"
+    remove: Noņemt

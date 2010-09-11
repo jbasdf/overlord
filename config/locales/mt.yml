@@ -1,0 +1,9 @@
+--- 
+mt: 
+  overlord: 
+    close: Agħlaq
+    loading_image: "Tagħbija Image"
+    loading_message: "Tagħbija ..."
+    no_entries_found: "Nru entrati misjuba"
+    read_more: "aqra aktar"
+    remove: Neħħi

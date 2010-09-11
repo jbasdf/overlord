@@ -1,0 +1,10 @@
+--- 
+? "no"
+: 
+  overlord: 
+    close: Lukk
+    loading_image: "Laster bilde"
+    loading_message: "Laster ..."
+    no_entries_found: "Ingen oppføringer funnet"
+    read_more: "Les mer"
+    remove: Fjern

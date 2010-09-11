@@ -1,9 +1,0 @@
---- 
-th: 
-  overlord: 
-    close: ปิด
-    loading_image: "โหลด รูปภาพ"
-    loading_message: "โหลด ..."
-    no_entries_found: "รายการ ไม่ พบ"
-    read_more: "อ่าน ข้อมูล เพิ่มเติม"
-    remove: "นำ ออก ไป"

@@ -10,8 +10,8 @@ function google_load_search() {
     <%= google_typed_search(type, feeds, locale) %>
   <% end -%>
   
-  <% if GlobalConfig.google_ad_partner_pub -%>
-    searchControl.enableAds('<%= GlobalConfig.google_ad_partner_pub %>');
+  <% if Overlord.configuration.google_ad_partner_pub -%>
+    searchControl.enableAds('<%= Overlord.configuration.google_ad_partner_pub %>');
   <% end -%>
   
   <% if search_types.length > 1 -%>

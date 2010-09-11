@@ -1,0 +1,9 @@
+--- 
+ru: 
+  overlord: 
+    close: Близко
+    loading_image: "Загрузка изображений"
+    loading_message: "Загрузка ..."
+    no_entries_found: "Нет записей"
+    read_more: подробнее
+    remove: Удалять
