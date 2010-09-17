@@ -52,7 +52,7 @@ module OverlordGoogleHelper
         end
       end
     end
-    content << "searchControl.addSearcher(#{type}Search);\n"
+    content << "searchControl.addSearcher(#{type}Search);\n".html_safe
   end
   
   # Render feeds using Google's api
@@ -162,7 +162,7 @@ module OverlordGoogleHelper
   
   # Generates a valid dom id for the feed
   def feed_content_id(feed)
-    "feed_#{feed.id}_#{feed.title.parameterize}_#{feed.service.name.parameterize}".gsub('+', '-')
+    "feed_#{feed.id}_#{feed.title.parameterize}_#{feed.service.name.parameterize}".gsub('+', '-').html_safe
   end
   
   # Outputs the appropriate script for handling the google response once the feed is loaded
@@ -193,18 +193,18 @@ module OverlordGoogleHelper
   
   def google_muck_load_callback_script(feed, content_id, number_of_items = 4, number_of_images = 6, number_of_videos = 6)
     if feed.service.blank?
-      "google_load_entries('#{feed.uri}', '#{content_id}', #{number_of_items});"
+      "google_load_entries('#{feed.uri}', '#{content_id}', #{number_of_items});".html_safe
     else
       if feed.service.photo?
-        "google_load_images('#{feed.uri}', '#{content_id}', #{number_of_images});"
+        "google_load_images('#{feed.uri}', '#{content_id}', #{number_of_images});".html_safe
       elsif feed.service.bookmark?
-        "google_load_bookmarks('#{feed.uri}', '#{content_id}', #{number_of_items});"
+        "google_load_bookmarks('#{feed.uri}', '#{content_id}', #{number_of_items});".html_safe
       elsif feed.service.video?
-        "google_load_videos('#{feed.uri}', '#{content_id}', #{number_of_videos});"
+        "google_load_videos('#{feed.uri}', '#{content_id}', #{number_of_videos});".html_safe
       elsif feed.service.music?
-        "google_load_entries('#{feed.uri}', '#{content_id}', #{number_of_items});"
+        "google_load_entries('#{feed.uri}', '#{content_id}', #{number_of_items});".html_safe
       else
-        "google_load_entries('#{feed.uri}', '#{content_id}', #{number_of_items});"
+        "google_load_entries('#{feed.uri}', '#{content_id}', #{number_of_items});".html_safe
       end
     end
   end
@@ -214,7 +214,7 @@ module OverlordGoogleHelper
       %Q{var link = jQuery(item.content).find('img').parent('a');
       link.attr('rel', '#{content_id}');
       link.addClass('feed-video');
-      jQuery('#' + content_id).append(link);}
+      jQuery('#' + content_id).append(link);}.html_safe
     end
   end
     
@@ -223,7 +223,7 @@ module OverlordGoogleHelper
       %Q{var link = jQuery(item.content).find('img').parent('a');
       link.attr('rel', '#{content_id}');
       link.addClass('feed-photo');
-      jQuery('#' + content_id).append(link);}
+      jQuery('#' + content_id).append(link);}.html_safe
     end
   end
   
@@ -231,7 +231,7 @@ module OverlordGoogleHelper
     google_load_template_script 'google_load_entries', javascript_callback, uri, content_id do
       %Q{var status_class = 'even';
       if(i%2 > 0) { status_class = 'odd'; }
-      jQuery('#' + content_id).append('<div class="hentry ' + status_class + '"><h4 class="title"><a class="entry-link" href="#" target="blank">' + item.title + '</a><span class="entry-close"><a class="entry-link-close" href="#">#{t('overlord.close')}</a></span></h4><div class="entry">' + item.content + ' <p><a href="' + item.link + '">#{t('overlord.read_more')}</a></p></div></div>');}
+      jQuery('#' + content_id).append('<div class="hentry ' + status_class + '"><h4 class="title"><a class="entry-link" href="#" target="blank">' + item.title + '</a><span class="entry-close"><a class="entry-link-close" href="#">#{t('overlord.close')}</a></span></h4><div class="entry">' + item.content + ' <p><a href="' + item.link + '">#{t('overlord.read_more')}</a></p></div></div>');}.html_safe
     end
   end
 
@@ -239,7 +239,7 @@ module OverlordGoogleHelper
     google_load_template_script 'google_load_bookmarks', javascript_callback, uri, content_id do
       %Q{var status_class = 'even';
       if(i%2 > 0) { status_class = 'odd'; }
-      jQuery('#' + content_id).append('<div class="hentry ' + status_class + '"><h4 class="title"><a class="bookmark-link" href="' + item.link + '" target="_blank">' + item.title + '</a></h4></div>');}
+      jQuery('#' + content_id).append('<div class="hentry ' + status_class + '"><h4 class="title"><a class="bookmark-link" href="' + item.link + '" target="_blank">' + item.title + '</a></h4></div>');}.html_safe
     end
   end
   
@@ -265,7 +265,7 @@ module OverlordGoogleHelper
         }
       });
     }
-    </script>}
+    </script>}.html_safe
   end
   
   # Renders a partial with the latest trends from google.
@@ -283,49 +283,49 @@ module OverlordGoogleHelper
     script << "?key=#{Overlord.configuration.google_ajax_api_key}" if Overlord.configuration.google_ajax_api_key
     script << '"></script>'
     @google_ajax_api_scripts_included = true
-    script
+    script.html_safe
   end
   
   # Output include script for google slideshows
   def google_ajax_slideshow_scripts
     return '' if defined?(@google_ajax_slideshow_scripts_included)
     @google_ajax_slideshow_scripts_included = true
-    '<script src="http://www.google.com/uds/solutions/slideshow/gfslideshow.js" type="text/javascript"></script>'
+    '<script src="http://www.google.com/uds/solutions/slideshow/gfslideshow.js" type="text/javascript"></script>'.html_safe
   end
   
   # Output include script for google feeds
   def google_load_feeds
     return '' if defined?(@google_load_feeds_included)
     @google_load_feeds_included = true
-    google_ajax_api_scripts + '<script type="text/javascript">google.load("feeds", "1");</script>'
+    (google_ajax_api_scripts + '<script type="text/javascript">google.load("feeds", "1");</script>').html_safe
   end
   
   # Output include script for google search
   def google_load_search
     return '' if defined?(@google_load_search_included)
     @google_load_search_included = true
-    google_ajax_api_scripts + '<script type="text/javascript">google.load("search", "1");</script>'
+    (google_ajax_api_scripts + '<script type="text/javascript">google.load("search", "1");</script>').html_safe
   end
   
   # Output include script for google maps
   def google_load_maps
     return '' if defined?(@google_load_maps_included)
     @google_load_maps_included = true
-    google_ajax_api_scripts + '<script type="text/javascript">google.load("maps", "2");</script>'
+    (google_ajax_api_scripts + '<script type="text/javascript">google.load("maps", "2");</script>').html_safe
   end
   
   # Output include script to load jquery from google
   def google_load_jquery(http_protocol = 'http://', version = '1.4.2')
     return '' if defined?(@google_load_jquery_included)
     @google_load_jquery_included = true
-    %Q{<script src="#{http_protocol}ajax.googleapis.com/ajax/libs/jquery/#{version}/jquery.min.js" type="text/javascript"></script>}
+    %Q{<script src="#{http_protocol}ajax.googleapis.com/ajax/libs/jquery/#{version}/jquery.min.js" type="text/javascript"></script>}.html_safe
   end
 
   # Output include script to load jquery ui from google
   def google_load_jquery_ui(http_protocol = 'http://', version = '1.8.4')
     return '' if defined?(@google_load_jquery_ui_included)
     @google_load_jquery_ui_included = true
-    %Q{<script src="#{http_protocol}ajax.googleapis.com/ajax/libs/jqueryui/#{version}/jquery-ui.min.js" type="text/javascript"></script>}
+    %Q{<script src="#{http_protocol}ajax.googleapis.com/ajax/libs/jqueryui/#{version}/jquery-ui.min.js" type="text/javascript"></script>}.html_safe
   end
   
   # Output a link to the jquery-ui css file on google
@@ -336,7 +336,7 @@ module OverlordGoogleHelper
   def google_load_jquery_ui_css(http_protocol = 'http://', theme = "smoothness", version = '1.8.4')
     return '' if defined?(@google_load_jquery_ui_css_included)
     @google_load_jquery_ui_css_included = true
-    %Q{<link rel="stylesheet" href="#{http_protocol}ajax.googleapis.com/ajax/libs/jqueryui/#{version}/themes/#{theme}/jquery-ui.css" type="text/css" />}
+    %Q{<link rel="stylesheet" href="#{http_protocol}ajax.googleapis.com/ajax/libs/jqueryui/#{version}/themes/#{theme}/jquery-ui.css" type="text/css" />}.html_safe
   end
   
   def change_chars(term)
