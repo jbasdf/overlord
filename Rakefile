@@ -13,6 +13,7 @@ begin
     gem.homepage = "http://github.com/jbasdf/overlord"
     gem.authors = ["Justin Ball", "Joel Duffin"]
     gem.add_dependency "httparty"
+    gem.add_dependency "json"
     gem.add_development_dependency "shoulda"
   end
   Jeweler::GemcutterTasks.new
